@@ -21,14 +21,15 @@
 	<P>Mihalya was first used by the journalists from <a href="http://www.bivol.bg">Bivol.bg</a> while working on the Cablegate releases from different locations.
 	<P>The system may be useful for investigative journalists, human rights activists in dictatorial countries, corporate security... secret agencies ;-)
 	<P>HTML5 enabled broser is required. The system is tested on Chrome, Firefox Opera and Safari. Known problems: MP3 audio is not working on Firefox. PDF viewing is not working on Safari & Opera.
+	 <P>Download the source code from <a href="https://github.com/mihalya/Mihalya/zipball/master">Github</a>.
 	<P><a href="#" onclick="document.getElementById('credits').style.display='block'">Credits</a>
 	
 	</fieldset>
 	
 	<fieldset><legend>Login</legend> 
 	<FORM ID="author" onSubmit="validate(); return false;">
-		User: <INPUT TYPE="text" NAME="name" VALUE="">
-		Password: <INPUT TYPE="password" NAME="pass" VALUE="">
+		User: <INPUT TYPE="text" NAME="name" VALUE="test">
+		Password: <INPUT TYPE="password" NAME="pass" VALUE="test">
 		<INPUT TYPE=SUBMIT VALUE="OK"><P>
 		Only if the login is not working as expected please click this button: <INPUT TYPE=BUTTON VALUE="INIT" onClick="cledb()" STYLE="font-size: 6pt"><BR>
 		<div id="error"></div>
@@ -128,7 +129,7 @@ Contributors: Andreas Gal
 <!-- <INPUT TYPE=BUTTON VALUE="REDOWNLOAD DB" onClick="reldb()" STYLE="font-size: 6pt"> -->
 		<BR>
 
-			<B>Search: <INPUT ID="srch" TYPE=TEXT VALUE="" SIZE=50></B>
+			<B>Search: <INPUT ID="srch" TYPE=TEXT VALUE="refid" SIZE=50></B>
 			<INPUT TYPE=SUBMIT VALUE="SEARCH" onClick="mysearch(0,20,''); return false;"> <BR>
 			
 			<!-- <INPUT TYPE=SUBMIT VALUE="SEARCH EXPORT" onClick="myexport(); return false;"> -->
