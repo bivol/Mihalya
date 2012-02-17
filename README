@@ -77,3 +77,5 @@ Type this in the prompt:
 If everything goes well the encrypted data will be encoded in output. Just move the output directory on a web server and point the browser to it.
 
 Enjoy!
+
+Credits: Mihalya project is supported by http://www.balkanleaks.eu and http://www.bivol.bg
