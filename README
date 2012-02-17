@@ -1,0 +1,77 @@
+1. What is Mihalya?
+
+Mihalya is a system designed to produce, search and browse encrypted data hosted on unsecured servers or even at home. Mihalya is using encrypted raw text files. There is no scripting, no RDBMS engine behind, the simpliest web server is enough to put online your searchable encrypted data.
+
+2. Prepare your data
+
+Text data is stored in raw text files utf8 encoded.
+
+Records are separated by this line: 
+
+=======================DATA ENDS============================
+
+Example Data structure
+
+id: 1
+date: 29.11.2011
+refid: BL001
+origin: Bulgaria Sofia
+classification: PUBLIC
+destination: 
+tags: Encryption Search Balkanleaks Wikileaks
+subject: Encrypted Data Search Engine
+body: Wondering how this system works? Click on the slides.
+
+=======================DATA ENDS============================
+
+id: 2
+date: 29.11.2011
+refid: BL002
+origin: Bulgaria Sofia
+classification: PUBLIC
+destination: 
+tags: Audio examples
+subject: Audio attachment example
+body: Click on the audio file in the Media box to listen
+
+=======================DATA ENDS============================
+
+
+3. Attachments
+
+Mihalya supports images, audio and pdf attachments. 
+
+Attachments associated with each record are placed in a directory named after the refid field. In the previous examples place the attachments in the BL001 and BL002 directories. You can use the following extensions: JPG, PNG, MP3, OGG and PDF.
+
+4. Encoding the data
+
+You need a working perl installation with the Crypt::OpenSSL::AES module installed via CPAN
+
+Change to the mihalya main dir. Place your data and attachment files in a directory, let's name it source:
+
+The directory structure should look like this:
+
+mihalya.pl (perl script file)
+index.html (html file)
+mihalya (dir)
+source (dir)
+- data.txt (text data file)
+- data2.txt (text data file)
+...
+- refid1 (dir)
+-- attachment1.jpg (pic attachment)
+-- attachment1.mp3 (sound attachment)
+-- attachment3.pdf (pdf attachment)
+- refid2 (dir)
+-- attachment2.jpg (pic attachment)
+-- attachment2.mp3 (sound attachment)
+-- attachment2.pdf (pdf attachment)
+...
+
+Type this in the prompt:
+
+# perl mihalya.pl "user" "pass" source output
+
+If everything goes well the encrypted data will be encoded in output. Just move the output directory on a web server and point the browser to it.
+
+Enjoy!
