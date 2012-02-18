@@ -464,18 +464,11 @@ if (!Array.prototype.indexOf) Array.prototype.indexOf = function (x) {
 				}
 				}
 				var ms = "";
-				ipp = trd(id+".attachcount");
-				ipp++;
-				for (ip=0; ip<=ipp; ip++) {
-					
-//					if(trd(id + ".attachname." + ip)) {
-					
+				
+				var ipp = trd(id+".attachcount");
+				if(ipp > 0) {
+				for (ip=1; ip < ipp; ip++) {
 					if(trd(id + ".attachtype." + ip)=="pdf") { //pdf
-					var xid = dhs(id + ".attachdata." + ip);
-					var file = s2h(xid);
-					var dir = file.substr(-3,3);
-					var fn = dir + "/file" + file + ".txt";
-					var fn = "/" + dir + "/file" + file + ".txt";
 					ms += "<A HREF='#" + id + ip + "' onClick='showpdf(\"" + id + "\",\"" + ip + "\");return false;' CLASS='"+ ((localStorage["beenhere."+id+ip])?"been":"notbeen") + "'><img src='data:image/gif;base64,"+pdfpng+"' border=0>";
 					ms += trd(id + ".attachname." + ip);
 					ms += "</A><BR>";
@@ -492,17 +485,15 @@ if (!Array.prototype.indexOf) Array.prototype.indexOf = function (x) {
 					ms += trd(id + ".attachname." + ip);
 					ms += "</A><BR>";
 					} //not pdf
-//					}
 				}
-			
+			}
 			e.innerHTML = "<H1>" +  trd(id+".subj") + "</H1><HR><B>REFID:</B> " + trd(id+".refid")
 					+ " <B>DATE:</B> " + trd(id+".date")
 					+ " <B>ORIGIN:</B> " + trd(id+".origin")
 					+ " <B>CLASS:</B> " + trd(id+".class")
-					+ " <B>DEST:</B> " + trd(id+".dest")
-					+ " <BR><B>SUBJECT:</B> " + trd(id+".subj");
+					+ " <B>DEST:</B> " + trd(id+".dest");
 					
-			e.innerHTML = "<BR><B>TEXT:</B> <PRE>" + trd(id + ".data") +"</PRE><BR>"+s+"<HR>";	
+			e.innerHTML += "<BR><B>TEXT:</B> <PRE>" + trd(id + ".data") +"</PRE><BR>"+s+"<HR>";	
 			
 			a.innerHTML = " <BR>" + ms;
 			
@@ -545,15 +536,6 @@ if (!Array.prototype.indexOf) Array.prototype.indexOf = function (x) {
     			s.style.display="none";
     			v = document.getElementById("view");
     			v.style.display="block";
-      	
-  			//	var page = pdf.getPage(1);
- 			//	var scale = 1;
-  	// Prepare canvas using PDF page dimensions
-  			//	var context = canvas.getContext('2d');
-  			//	canvas.height = page.height * scale;
-  			//	canvas.width = page.width * scale;
-  				// Render PDF page into canvas context
-  			//	page.startRendering(context);
 			} else {
 				canvas.innerHTML = '<P>' + trd(id + ".attachname." + ip) + '<P>Can\'t be found';
 			}
@@ -654,7 +636,7 @@ if (!Array.prototype.indexOf) Array.prototype.indexOf = function (x) {
 
 // Search function	
 function mysearch(start,end,b) {
-		
+
 		var e = document.getElementById("srch");
 		var m = document.getElementById("media");
 		m.innerHTML="";
@@ -754,13 +736,13 @@ function mysearch(start,end,b) {
 				
 				var div = document.createElement('div');
 				div.innerHTML =
-				" <A HREF='#" + myid +"' onClick='showid(\"" + myid + "\");return false;' CLASS='"+ ((localStorage["beenhere."+myid])?"been":"notbeen") + "'>"+(i+1)
-					+ " <B>REFID:</B> " + trd(myid+".refid")
-					+ " </A><B>DATE:</B> " + trd(myid+".date")
+				" <B><A HREF='#" + myid +"' onClick='showid(\"" + myid + "\");return false;' CLASS='"+ ((localStorage["beenhere."+myid])?"been":"notbeen") + "'>"+(i+1)
+					+ " " + trd(myid+".subj")
+					+ " </B></A><BR><B>REFID:</B> " + trd(myid+".refid")
+					+ " <B>DATE:</B> " + trd(myid+".date")
 					+ " <B>ORIGIN:</B> " + trd(myid+".origin")
 					+ " <B>CLASS:</B> " + trd(myid+".class")
 					+ " <B>DEST:</B> " + trd(myid+".dest")
-					+ " <BR><B>SUBJECT:</B> " + trd(myid+".subj")
 					+ " <BR>" + s + "<HR><BR>";
 				e.appendChild(div);
 			}
