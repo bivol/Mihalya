@@ -745,7 +745,6 @@ function mysearch(start,end,b) {
 					var s = "<a href='#' onClick='editid("+myid+")'><img src='data:image/png;base64,"+editpng+"' border=0> Edit</a> ::: ";
 				}
 				for (property in baskets) {
-				
 				if (baski[property][myid]) {
 					s += "<a name='"+myid+"'><a href='#"+myid+"' onClick='togglebaski(this,\""+property+"\",\""+myid+"\")'>"+property+": <b><img src='data:image/png;base64,"+tickpng+"' border=0></b></a> ::: ";
 				} else {
