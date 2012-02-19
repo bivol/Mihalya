@@ -74,8 +74,34 @@ Type this in the prompt:
 
 # perl mihalya.pl "user" "pass" source output
 
-If everything goes well the encrypted data will be encoded in output. Just move the output directory on a web server and point the browser to it.
+If everything goes well the encrypted data will be encoded in output. 
 
-Enjoy!
+5. Browsing the data from the web
+
+To browse from the web just move the output directory on a web server and point the browser to it. That's it. Enjoy!
+
+6. Browsing the data locally
+
+You can also browse the data locally from the HD or from an USB drive. In this case only a recent version of Firefox will work properly.
+
+Open Firefox and type about:config in the address field. Promise to be carefull and pass the alert.
+
+Search for fileuri in the filter. Doble click on security.fileuri.strict_origin_policy to switch the setting from true to false.
+
+Restart the browser and load the index file from the disk.
+
+Don't forget to switch back security.fileuri.strict_origin_policy to true when you're done. Avoid browsing the web while you are working on the local copy of Mihalya.
+
+You can also use a dedicated portable version of Firefox. The portable FF copy will start from a USB drive and the security switch is done only once, cause you'll use the portable FF only for browsing the encrypted data and not for visiting the web.
+
+Windows users are happy with the Portableapps edition of FF - portable.
+
+http://portableapps.com/apps/internet/firefox_portable
+
+There is no recent portable FF for MacOSX and Linux, but the TorBrowserBundle version will do the job. 
+
+https://www.torproject.org/projects/torbrowser.html.en
+
+However you need to go through an additional step. After the security switch in about:config go to the Extensions and desactivate the Tor Button. Restart the browser and load the index file from the disk. Enjoy!
 
 Credits: Mihalya project is supported by http://www.balkanleaks.eu and http://www.bivol.bg
